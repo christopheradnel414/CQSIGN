@@ -124,11 +124,45 @@ python setup.py install
 # Executing Benchmarks
 
 ## Preparing Dataset
+In this work, we are using 3 main datasets ([PPI](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.PPI.html), [MedMNIST Organ-C](https://medmnist.com/), and [MedMNIST Organ-S](https://medmnist.com/)). PPI dataset will be automatically downloaded from the installed torch-geometric module when we run the benchmarks, while Organ-C & S datasets are included in this github repository. However, since Organ-C & S are originally an image dataset, we included a pre-processing script to convert the image to graph based on their vectorized pixel intensities and between sample cosine similarity. Before initial run of the code, user needs to run the Organ pre-processing script as follows:
+```
+./generate_organ.sh
+```
 
 ## Pre-processing for ClusterGCN and GNN AutoScale
+As mentioned in the introduction, both included ClusterGCN and GNN AutoScale package takes the pre-processed contracted graph dataset as input. Hence, we need to generate these contracted graphs using the following script:
+```
+./run_generate_contracted_data_ClusterGCN.sh
+./run_generate_contracted_data_GNNAutoScale.sh
+```
 
 ## Executing C-QSIGN, C-SIGN, and C-GCN
+To reproduce the experiments for C-QSIGN, C-SIGN, and C-GCN, the user can run the following script:
+```
+./run_main_benchmark_GCN_SIGN_QSIGN.sh
+```
+To manually run the experiment with user defined parameters, the user can use the following command:
+```
+python main_{dataset name}.py --model_type {model name} --centrality {centrality type} --num_epoch {number of epoch} --node_budget {node budget} --max_hop {SIGN maximum hop} --layers {number of layers} --dropout {dropout} --batch_norm {batch normalization} --lr {learning rate} --num_batch {number of mini-batches}
+```
+By setting the parameters as follows:
+- {dataset name}: a choice between PPI, OrganC, and OrganS
+- {model name}: a choice between GCN, SIGN, and QSIGN
+- {centrality type}: a choice between NO (no contraction), DC (degree centrality), EC (eigenvector centrality), BC (betweenness centrality), PR (PageRank centrality), and CC (closeness centrality), which denotes the centrality measure being used for the contraction
+- {number of epoch}: integer denoting the number of epoch
+- {node budget}: integer denoting the number of training node budget post-contraction
+- {SIGN maximum hop}: integer denoting the number of SIGN and QSIGN pre-computed hops (corresponds to the maximum adjacency power matrix)
+- {number of layers}: integer denoting the number of layers
+- {dropout}: float between 0 to 1.0 denoting the dropout
+- {batch normalization}: boolean denoting whether or not to use batch normalization (True: use batchnorm, False: do not use batchnorm)
+- {learning rate}: float denoting the learning rate
+- {number of mini-batches}: integer denoting the number of mini-batches for the training
 
+Example: 
+```
+python main_PPI.py --model_type QSIGN --centrality EC --num_epoch 1000 --node_budget 15000 --max_hop 3 --layers 3 --dropout 0.2 --batch_norm True --lr 0.0005 --num_batch 10
+```
+Note that the results of the run will be appended to results.csv file (will automatically be created if it doesn't exists) in a tabular manner.
 ## Executing C-ClusterGCN
 
 ## Executing C-GAS (GNN AutoScale)
