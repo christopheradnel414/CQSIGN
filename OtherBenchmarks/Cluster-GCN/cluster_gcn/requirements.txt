@@ -1,0 +1,8 @@
+networkx==1.11
+numpy
+scipy
+scikit-learn
+setuptools
+nvidia-pyindex
+nvidia-tensorflow==1.15.5+nv22.12
+metis

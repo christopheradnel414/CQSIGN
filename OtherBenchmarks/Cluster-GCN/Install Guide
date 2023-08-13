@@ -1,0 +1,13 @@
+1. Need to install Python 3.7.16 for fractions.gcd compatibility
+2. Need to download METIS file from https://github.com/KarypisLab/METIS and GKLib file from https://github.com/KarypisLab/GKlib. Installation procedure can follow the github website
+3. Need to install metis wrapper manually using "pip install metis", then open the metis.py file and change all occurences of .nodes to .node (bug in the library...)
+4. Need to set environment variable METIS_DLL to "export METIS_DLL=~/.local/lib/libmetis.so"
+5. The vanilla requirement.txt is unusable, use own implementation instead with:
+	tensorflow-gpu==1.13.1
+	networkx==1.11
+	numpy==1.15.4
+	scipy==1.2.0
+	scikit-learn>=0.19.1
+	setuptools
+6. For GPU implementation, use pip install nvidia-tensorflow
+
