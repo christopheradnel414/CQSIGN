@@ -171,4 +171,10 @@ Next, the user can reproduce the benchmarks using the following script:
 ```
 Note that the results of the run will be appended to results.csv file (will automatically be created if it doesn't exists) in a tabular manner.
 ## Executing C-GAS (GNN AutoScale)
+To run the C-GAS experiment, the user must first go to this directory: CQSIGN/OtherBenchmarks/GNNAutoScale/pyg_autoscale/large_benchmark
+Next, the user can reproduce the benchmarks using the following script:
+```
+./run_GAS_benchmark.sh
+```
+Note that the results of the run will be appended to results.csv file (will automatically be created if it doesn't exists) in a tabular manner.
 
