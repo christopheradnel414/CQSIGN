@@ -59,7 +59,7 @@ fi
 export LD_LIBRARY_PATH
 export PATH="/usr/local/cuda-11.8/bin:$PATH"
 ```
-4. Install dependencies using the following pip3 command:
+4. Install dependencies using the following pip commands:
 ```
 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 pip install torch-scatter -f https://pytorch-geometric.com/whl/torch-2.0.0+11.8.html
@@ -75,9 +75,47 @@ pip install scipy==1.10.1
 ```
 pip install -v -e .
 ```
-# Executing C-QSIGN, C-SIGN, and C-GCN
+## Cluster-GCN Directory Setup
+1. User is recommended to create a new Python 3.9.16 virtual environment for the Cluster-GCN dependencies.
+2. Go to CQSIGN/OtherBenchmarks/Cluster-GCN/GKlib and install [GKlib](https://github.com/KarypisLab/GKlib) by executing the following script:
+```
+make
+make install
+```
+3. CQSIGN/OtherBenchmarks/Cluster-GCN/METIS and install [METIS](https://github.com/KarypisLab/METIS) by executing the following script:
+```
+sudo apt-get install build-essential
+sudo apt-get install cmake
 
-# Executing C-ClusterGCN
+make config shared=1 cc=gcc prefix=~/local
+make install
+```
+4. Install python metis wrapper using pip:
+```
+pip install metis
+```
+5. Set METIS_DLL environment variable by adding the following script to ~/.bashrc:
+```
+export METIS_DLL=~/.local/lib/libmetis.so
+```
+6. Install dependencies using the following pip commands:
+```
+pip install nvidia-tensorflow
+pip install networkx==1.11
+pip install numpy==1.23.5
+pip install scikit-learn==1.2.2
+pip install scipy==1.10.1
+pip install setuptools
+```
+# Executing Benchmarks
 
-# Executing C-GAS (GNN AutoScale)
+## Preparing Dataset
+
+## Pre-processing for ClusterGCN and GNN AutoScale
+
+## Executing C-QSIGN, C-SIGN, and C-GCN
+
+## Executing C-ClusterGCN
+
+## Executing C-GAS (GNN AutoScale)
 
