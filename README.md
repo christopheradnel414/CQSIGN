@@ -35,6 +35,7 @@ torch-scatter==2.1.1+pt20cu118
 torch-sparse==0.6.17+pt20cu118
 torch-geometric==2.3.0
 torch==2.0.0+cu118
+metis==0.2a5
 hydra-core==1.3.2
 numpy==1.24.1
 scikit-learn==1.2.2
@@ -107,6 +108,18 @@ pip install scikit-learn==1.2.2
 pip install scipy==1.10.1
 pip install setuptools
 ```
+## GNN AutoScale (GAS) Directory Setup
+1. Here, user can reuse the same conda environment as the main CQSIGN directory as there are no conflicting dependencies with GNN AutoScale.
+2. Install GKlib and METIS from step 2 and 3 of Cluster-GCN Directory Setup if not done before.
+3. Install python metis wrapper using pip:
+```
+pip install metis
+```
+4. Go to CQSIGN/OtherBenchmarks/GNNAutoScale/pyg_autoscale and compile the C++ files using the following script:
+```
+python setup.py install
+```
+
 # Executing Benchmarks
 
 ## Preparing Dataset
