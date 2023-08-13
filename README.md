@@ -41,8 +41,14 @@ scikit-learn==1.2.2
 scipy==1.10.1
 setuptools
 ```
+Note that we are using CUDA 11.8 toolkit paired with an NVIDIA RTX 3050ti GPU with driver version 525.125.06 and CUDA 12.0. User are recommended to use the CUDA toolkit version that corresponds to their NVIDIA GPU driver. Details can be found [here](https://docs.nvidia.com/deploy/cuda-compatibility/index.html#binary-compatibility__table-toolkit-driver).
 
 # Setup
+
+1. To setup the main CQSIGN directory, user is recommended to create a new Python 3.9.16 virtual environment using [conda](https://conda.io/projects/conda/en/latest/index.html).
+2. Install NVIDIA Cuda 11.8 toolkit from 
+
+
 
 # Executing C-QSIGN, C-SIGN, and C-GCN
 
