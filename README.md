@@ -110,10 +110,11 @@ pip install setuptools
 ```
 ## GNN AutoScale (GAS) Directory Setup
 1. Here, user can reuse the same conda environment as the main CQSIGN directory as there are no conflicting dependencies with GNN AutoScale.
-2. Install GKlib and METIS from step 2 and 3 of Cluster-GCN Directory Setup if not done before.
-3. Install python metis wrapper using pip:
+2. Install METIS from step 2, 3, 4, and 5 of Cluster-GCN Directory Setup if not done before.
+3. Install remaining dependancies using pip:
 ```
-pip install metis
+pip install hydra-core==1.3.2
+pip install setuptools
 ```
 4. Go to CQSIGN/OtherBenchmarks/GNNAutoScale/pyg_autoscale and compile the C++ files using the following script:
 ```
