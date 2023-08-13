@@ -41,15 +41,40 @@ scikit-learn==1.2.2
 scipy==1.10.1
 setuptools
 ```
-Note that we are using CUDA 11.8 toolkit paired with an NVIDIA RTX 3050ti GPU with driver version 525.125.06 and CUDA 12.0. User are recommended to use the CUDA toolkit version that corresponds to their NVIDIA GPU driver. Details can be found [here](https://docs.nvidia.com/deploy/cuda-compatibility/index.html#binary-compatibility__table-toolkit-driver).
+Note that we are using CUDA 11.8 toolkit paired with an NVIDIA RTX 3050ti GPU with driver version 525.125.06. User are recommended to use the CUDA toolkit version that corresponds to their NVIDIA GPU driver. Details can be found [here](https://docs.nvidia.com/deploy/cuda-compatibility/index.html#binary-compatibility__table-toolkit-driver).
 
 # Setup
-
+Note that these instructions are written for Linux 22.04 with NVIDIA driver version 525.125.06.
+## CQSIGN Directory Setup
 1. To setup the main CQSIGN directory, user is recommended to create a new Python 3.9.16 virtual environment using [conda](https://conda.io/projects/conda/en/latest/index.html).
-2. Install NVIDIA Cuda 11.8 toolkit from 
-
-
-
+3. Install NVIDIA CUDA 11.8 toolkit from [here](https://developer.nvidia.com/cuda-11-8-0-download-archive). Depending on the user's NVIDIA driver version, different version of CUDA toolkit might be necessary.
+4. Add the newly installed CUDA toolkit directory to bashrc by adding these lines to ~/.bashrc file:
+```
+# CUDA Toolkit 11.8
+if [ -z $LD_LIBRARY_PATH ]; then
+  LD_LIBRARY_PATH=/usr/local/cuda-11.8/lib64
+else
+  LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-11.8/lib64
+fi
+export LD_LIBRARY_PATH
+export PATH="/usr/local/cuda-11.8/bin:$PATH"
+```
+4. Install dependencies using the following pip3 command:
+```
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+pip install torch-scatter -f https://pytorch-geometric.com/whl/torch-2.0.0+11.8.html
+pip install torch-sparse -f https://pytorch-geometric.com/whl/torch-2.0.0+11.8.html
+pip install torch-geometric
+pip install ninja==1.11.1
+pip install numpy==1.24.1
+pip install networkx==3.0
+pip install scikit-learn==1.2.2
+pip install scipy==1.10.1
+```
+5. Install ActNN quantization package by going to ActNN folder and running the following script in cli:
+```
+pip install -v -e .
+```
 # Executing C-QSIGN, C-SIGN, and C-GCN
 
 # Executing C-ClusterGCN
