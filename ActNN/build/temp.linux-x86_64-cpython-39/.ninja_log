@@ -1,7 +1,0 @@
-# ninja log v5
-0	13043	1689618118022301352	/home/chris/Desktop/CQSIGN/ActNN/build/temp.linux-x86_64-cpython-39/cpp_extension/calc_precision.o	129b8d5bda485441
-2	12294	1689618130718308119	/home/chris/Desktop/CQSIGN/ActNN/build/temp.linux-x86_64-cpython-39/cpp_extension/minimax.o	480fd5f011c7ee8b
-3	39181	1689618157602889246	/home/chris/Desktop/CQSIGN/ActNN/build/temp.linux-x86_64-cpython-39/cpp_extension/minimax_cuda_kernel.o	30731873b2d2aa31
-3	12999	1689618171015389428	/home/chris/Desktop/CQSIGN/ActNN/build/temp.linux-x86_64-cpython-39/cpp_extension/backward_func.o	12a766db841e94bc
-2	14744	1689618186215929493	/home/chris/Desktop/CQSIGN/ActNN/build/temp.linux-x86_64-cpython-39/cpp_extension/quantization.o	8ef684cb440a2b7
-2	41673	1689618213144821282	/home/chris/Desktop/CQSIGN/ActNN/build/temp.linux-x86_64-cpython-39/cpp_extension/quantization_cuda_kernel.o	cfb8de861755071f
