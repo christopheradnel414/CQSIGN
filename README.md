@@ -1,5 +1,5 @@
 # CQSIGN: Topological Contracted Quantized SIGN Framework
-This repository is part of "Affordable Graph Neural Network Framework using Topological Graph Contraction" workshop paper published in MICCAI workshop ([MiLLAND 2023](https://miccaimilland.wixsite.com/milland2023)). This repository contains the main source code for our proposed CQSIGN framework along with other implementation of topological graph contraction on various memory-efficient GNN models (e.g., SIGN, QSIGN, GCN, Cluster-GCN, and GNN AutoScale). However, since some of the included model have different dependencies (e.g., different version of NetworkX), this repository will be organized as follows:
+This repository is part of "Affordable Graph Neural Network Framework using Topological Graph Contraction" workshop paper published in MICCAI workshop ([MiLLAND 2023](https://miccaimilland.wixsite.com/milland2023)). This repository contains the main source code for our proposed topological graph contraction and its application on various memory-efficient GNN models (e.g., SIGN, QSIGN, GCN, Cluster-GCN, and GNN AutoScale). However, since some of the included model have different dependencies (e.g., different version of NetworkX), this repository is organized as follows:
 
 <img width="600" alt="Screenshot 2023-08-14 at 13 25 44" src="https://github.com/christopheradnel414/CQSIGN/assets/41734037/56969b5b-258e-4150-98fe-3c1984a5982a">
 
@@ -124,7 +124,7 @@ python setup.py install
 # Executing Benchmarks
 
 ## Preparing Dataset
-In this work, we are using 3 main datasets ([PPI](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.PPI.html), [MedMNIST Organ-C](https://medmnist.com/), and [MedMNIST Organ-S](https://medmnist.com/)). PPI dataset will be automatically downloaded from the installed torch-geometric module when we run the benchmarks, while Organ-C & S datasets are included in this github repository. However, since Organ-C & S are originally an image dataset, we included a pre-processing script to convert the image to graph based on their vectorized pixel intensities and between sample cosine similarity. Before initial run of the code, user needs to run the Organ pre-processing script as follows:
+In this work, we are using 3 main datasets ([PPI](https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.datasets.PPI.html), [MedMNIST Organ-C](https://medmnist.com/), and [MedMNIST Organ-S](https://medmnist.com/)). PPI dataset will automatically downloaded from the installed torch-geometric module when we run the benchmarks, while Organ-C & S datasets are included in this github repository. However, since Organ-C & S are originally an image dataset, we included a pre-processing script to convert the image to graph based on their vectorized pixel intensities and between sample cosine similarity. Before initial run of the code, user needs to run the Organ pre-processing script as follows:
 ```
 ./generate_organ.sh
 ```
@@ -176,5 +176,5 @@ Next, the user can reproduce the benchmarks using the following script:
 ```
 ./run_GAS_benchmark.sh
 ```
-Note that the results of the run will be appended to results.csv file (will automatically be created if it doesn't exists) in a tabular manner.
+Note that the results of the run  be appended to results.csv file ( automatically be created if it doesn't exists) in a tabular manner.
 
